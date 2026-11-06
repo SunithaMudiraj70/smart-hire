@@ -69,8 +69,9 @@ def validate_apply_url(source: str, url: str) -> Tuple[bool, str]:
     if matched_allowlist is not None:
         if netloc not in matched_allowlist:
             return False, f"host_not_in_allowlist: {netloc} not in {matched_allowlist}"
+        return True, "ok"
 
-    # For jsearch, jsonld, direct company careers, or allowlisted ATS: DNS must resolve
+    # For non-allowlisted / dynamic sources (jsearch, jsonld, direct company careers): DNS must resolve
     try:
         socket.gethostbyname(netloc)
     except Exception as e:

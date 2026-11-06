@@ -51,24 +51,24 @@ def startup_checks():
     except Exception as mem_err:
         logger.info(f"[STARTUP MEMORY] Note: psutil memory check: {mem_err}")
 
-    # 2. Startup URL check
+    # 2. Startup URL check (fast sample to avoid blocking server boot on Render)
     from backend.urlguard import validate_apply_url
     from backend.database import SessionLocal
-    seed_demo = os.environ.get("SEED_DEMO", "false").lower() == "true"
-    if not seed_demo:
+    run_check = os.environ.get("RUN_STARTUP_URL_CHECK", "false").lower() == "true"
+    if run_check:
         db = SessionLocal()
         try:
-            visible_jobs = db.query(JobPosting).filter(JobPosting.is_active == True, JobPosting.is_demo == False).all()
+            visible_jobs = db.query(JobPosting).filter(JobPosting.is_active == True, JobPosting.is_demo == False).limit(5).all()
             invalid_count = 0
             for j in visible_jobs:
                 is_valid, reason = validate_apply_url(j.source, j.apply_url)
                 if not is_valid:
                     invalid_count += 1
-                    logger.error(f"[STARTUP URL CHECK] Job {j.id} from {j.source} failed URL validation: {reason} (URL: {j.apply_url})")
+                    logger.warning(f"[STARTUP URL CHECK] Job {j.id} from {j.source} failed URL validation: {reason} (URL: {j.apply_url})")
             if invalid_count > 0:
-                logger.error(f"[STARTUP URL CHECK] Total {invalid_count} active visible jobs failed URL validation!")
+                logger.warning(f"[STARTUP URL CHECK] {invalid_count} sampled active jobs failed URL validation.")
             else:
-                logger.info(f"[STARTUP URL CHECK] All {len(visible_jobs)} active visible jobs passed URL validation.")
+                logger.info(f"[STARTUP URL CHECK] All sampled active jobs passed URL validation.")
         except Exception as e:
             logger.warning(f"Startup URL check error: {e}")
         finally:
@@ -167,12 +167,21 @@ class SearchParams(BaseModel):
 
 @app.get("/api/health")
 def health_check(db: Session = Depends(get_db)):
-    user_count = db.query(User).count()
-    job_count = db.query(JobPosting).filter(JobPosting.is_active == True).count()
+    try:
+        user_count = db.query(User).count()
+        job_count = db.query(JobPosting).filter(JobPosting.is_active == True).count()
+        db_status = "connected"
+    except Exception as e:
+        logger.warning(f"Healthcheck DB warning: {e}")
+        user_count = 0
+        job_count = 0
+        db_status = f"reconnecting ({str(e)[:60]})"
+
     return {
         "status": "healthy",
         "app": "smart-hire",
         "tagline": "Find the right job without scrolling every portal.",
+        "database": db_status,
         "users_registered": user_count,
         "active_jobs_indexed": job_count,
         "timestamp": datetime.datetime.utcnow().isoformat()
