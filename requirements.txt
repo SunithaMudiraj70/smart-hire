@@ -16,6 +16,7 @@ email-validator>=2.1.0
 # Database & ORM
 sqlalchemy>=2.0.0
 psycopg2-binary>=2.9.9
+psycopg[binary]>=3.1.0
 
 # Authentication & Password Hashing
 pyjwt>=2.8.0

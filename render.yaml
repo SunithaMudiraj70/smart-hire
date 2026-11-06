@@ -10,14 +10,6 @@
 
 version: "1"
 
-databases:
-  - name: smart-hire-postgres
-    databaseName: smart_hire
-    user: smart_hire_user
-    plan: free
-    region: oregon # Options: oregon, frankfurt, ohio, singapore
-    ipAllowList: [] # Restrict direct access to internal Render services only
-
 services:
   # ----------------------------------------------------------------------------
   # 1. smart-hire Backend API Web Service
@@ -36,11 +28,16 @@ services:
       - key: PYTHON_VERSION
         value: 3.11.9
 
-      # Database connection securely bound from the managed PostgreSQL above
+      # Supabase PostgreSQL Database Connection String
+      # Render will prompt for this during Blueprint setup, or set in Service Environment settings.
       - key: DATABASE_URL
-        fromDatabase:
-          name: smart-hire-postgres
-          property: connectionString
+        sync: false
+
+      - key: SUPABASE_URL
+        value: https://rnxyluziclnpckprmmrq.supabase.co
+
+      - key: SUPABASE_KEY
+        sync: false
 
       # Cryptographically generated JWT secret key (Render auto-generates on first deploy)
       - key: JWT_SECRET_KEY
