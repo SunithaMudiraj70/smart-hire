@@ -229,6 +229,25 @@ def test_hybrid_search_and_saved_searches(client, unique_email):
     token = signup_resp.json()["access_token"]
     headers = {"Authorization": f"Bearer {token}"}
 
+    # Ensure at least one test job exists for searching
+    db = SessionLocal()
+    from backend.models import JobPosting
+    if db.query(JobPosting).filter(JobPosting.title.ilike("%Python%")).count() == 0:
+        job = JobPosting(
+            id=f"test_job_{uuid.uuid4().hex[:6]}",
+            title="Python Backend Engineer",
+            company="TechCorp",
+            location="Bengaluru",
+            description="Looking for a Python Engineer",
+            source="greenhouse",
+            apply_url="https://boards.greenhouse.io/techcorp/jobs/123",
+            is_active=True,
+            is_demo=False
+        )
+        db.add(job)
+        db.commit()
+    db.close()
+
     # Search with Boolean query
     search_resp = client.get("/api/jobs/search?q=Python%20AND%20Engineer", headers=headers)
     assert search_resp.status_code == 200
