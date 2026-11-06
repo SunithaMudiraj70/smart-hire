@@ -1,0 +1,20 @@
+{
+  "name": "smart-hire",
+  "short_name": "smart-hire",
+  "description": "Find the right job without scrolling every portal. Real-time job search intelligence.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#4f46e5",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
+

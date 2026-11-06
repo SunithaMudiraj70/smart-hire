@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TalentPulse | Job Discovery &amp; Career Assistant</title>
+  <meta name="description" content="Clean, minimal job discovery engine with CV recommendations, smart filters, and automated applications.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+
+  <!-- ==================== COMMERCIAL PRODUCT LANDING PAGE ==================== -->
+  <section class="landing-page" id="landingPageSection" style="display: none;">
+    <!-- Landing Header -->
+    <header class="landing-header">
+      <div class="landing-nav-container">
+        <div class="logo-wrap" onclick="launchAppDemo()" style="cursor: pointer;">
+          <div class="logo-icon">TP</div>
+          <div style="display:flex; flex-direction:column;">
+            <span class="logo-text">TalentPulse <span class="badge-b2b">Enterprise AI</span></span>
+            <span style="font-size: 10px; color: #64748b; letter-spacing: 0.5px; margin-top: -2px;">COMMERCIAL PRODUCT</span>
+          </div>
+        </div>
+        <div class="landing-nav-links">
+          <a href="#agenticFlow" class="landing-nav-link">Agentic Architecture</a>
+          <a href="#jobPortals" class="landing-nav-link">Verified Portals</a>
+          <a href="#pricingEnterprise" class="landing-nav-link">B2B Integration</a>
+        </div>
+        <div class="landing-nav-actions">
+          <button class="btn-landing-secondary" onclick="openAuthModal('login')">Sign In</button>
+          <button class="btn-landing-primary" onclick="handleLaunchPortalClick()">
+            Launch Portal 🚀
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="landing-hero-wrap">
+      <div class="landing-hero-content">
+        <div class="landing-badge">
+          <span class="badge-pulse">●</span> Next-Gen Agentic Job Search &amp; Auto-Dispatch Infrastructure
+        </div>
+        <h1 class="landing-title">
+          Scale Your Career Pipeline with <br><span class="gradient-text">Autonomous AI Application Agents</span>
+        </h1>
+        <p class="landing-subtitle">
+          TalentPulse is the commercial agentic career copilot bridging candidate potential with enterprise talent pipelines. 
+          Real-time aggregation across LinkedIn, Naukri, Indeed, and Greenhouse ATS — matched against your CV with local Llama-3 AI, complete with 1-click autonomous dispatch and zero-typing clipboard bridges.
+        </p>
+
+        <div class="landing-cta-row">
+          <button class="btn-landing-primary btn-large" onclick="handleLaunchPortalClick()">
+            Launch Candidate Dashboard ⚡
+          </button>
+          <button class="btn-landing-secondary btn-large" onclick="openAuthModal('register')">
+            Create Candidate Account 👤
+          </button>
+        </div>
+
+        <!-- Metric KPI Cards -->
+        <div class="landing-kpis">
+          <div class="kpi-card">
+            <div class="kpi-num">15+</div>
+            <div class="kpi-label">Aggregated Job Boards &amp; Direct Portals</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-num">10x</div>
+            <div class="kpi-label">Application Velocity Boost</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-num">94.2%</div>
+            <div class="kpi-label">Llama-3 Semantic Match Precision</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-num">100%</div>
+            <div class="kpi-label">Audit-Tracked Application Receipts</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Agentic Workflow Architecture Section -->
+    <div class="landing-section" id="agenticFlow">
+      <div class="section-container">
+        <div class="section-header-center">
+          <div class="section-tag">PROPRIETARY ARCHITECTURE</div>
+          <h2 class="section-title">The TalentPulse Agentic Pipeline</h2>
+          <p class="section-subtitle">
+            An end-to-end multi-agent system orchestrating resume extraction, high-frequency board crawling, semantic matchmaking, and verifiable application dispatch.
+          </p>
+        </div>
+
+        <div class="agentic-pipeline-grid">
+          <!-- Step 1 -->
+          <div class="agentic-step-card">
+            <div class="step-num">01</div>
+            <div class="step-icon">📄</div>
+            <div class="step-title">Multi-Modal CV Ingestion</div>
+            <div class="step-desc">
+              Parses unstructured candidate PDF/TXT resumes into standardized vectors: competency clusters, years of experience, and target roles.
+            </div>
+            <div class="step-tech">pdfplumber • PyPDFium2 • NER</div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="agentic-step-card">
+            <div class="step-num">02</div>
+            <div class="step-icon">🌐</div>
+            <div class="step-title">Omni-Board Web Swarm</div>
+            <div class="step-desc">
+              Executes continuous multi-source search across LinkedIn, Naukri, Indeed, RemoteOK, and Greenhouse ATS with Boolean query filtering.
+            </div>
+            <div class="step-tech">Multi-Source API &amp; Web Crawlers</div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="agentic-step-card">
+            <div class="step-num">03</div>
+            <div class="step-icon">🧠</div>
+            <div class="step-title">Llama-3 Matchmaking Engine</div>
+            <div class="step-desc">
+              Local LLM reasoning computes deep semantic alignment scores (>75%), highlights shared skills, and flags role-candidate synergy.
+            </div>
+            <div class="step-tech">Ollama • Llama-3 • Cosine Similarity</div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="agentic-step-card">
+            <div class="step-num">04</div>
+            <div class="step-icon">✍️</div>
+            <div class="step-title">Autonomous Pitch Synthesis</div>
+            <div class="step-desc">
+              Synthesizes tailored, context-aware 3-paragraph cover letters addressing the specific hiring team and role challenges.
+            </div>
+            <div class="step-tech">Generative AI • Contextual Prompts</div>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="agentic-step-card">
+            <div class="step-num">05</div>
+            <div class="step-icon">🚀</div>
+            <div class="step-title">Autonomous Dispatch &amp; Ledger</div>
+            <div class="step-desc">
+              Logs permanent cryptographic application receipts (`APP-YYYYMMDD-XXXX`), synchronizes Supabase DB, and equips clipboard auto-fill.
+            </div>
+            <div class="step-tech">Supabase PostgreSQL • Quick-Fill Bridge</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Supported Portals & Enterprise Transparency -->
+    <div class="landing-section bg-slate" id="jobPortals">
+      <div class="section-container">
+        <div class="section-header-center">
+          <div class="section-tag">SEAMLESS INTEROPERABILITY</div>
+          <h2 class="section-title">Verified Job Board &amp; Portal Coverage</h2>
+          <p class="section-subtitle">
+            TalentPulse bridges directly into the world's most dominant job boards and enterprise ATS ecosystems.
+          </p>
+        </div>
+
+        <div class="portals-display-grid">
+          <div class="portal-badge-card">
+            <div class="p-icon" style="background: #0a66c2;">in</div>
+            <div class="p-name">LinkedIn Jobs</div>
+            <div class="p-type">Direct Search &amp; Quick-Fill</div>
+          </div>
+          <div class="portal-badge-card">
+            <div class="p-icon" style="background: #0056b3;">N</div>
+            <div class="p-name">Naukri.com</div>
+            <div class="p-type">Direct Search &amp; Quick-Fill</div>
+          </div>
+          <div class="portal-badge-card">
+            <div class="p-icon" style="background: #2557a7;">ind</div>
+            <div class="p-name">Indeed</div>
+            <div class="p-type">Direct Search &amp; Quick-Fill</div>
+          </div>
+          <div class="portal-badge-card">
+            <div class="p-icon" style="background: #057642;">GH</div>
+            <div class="p-name">Greenhouse ATS</div>
+            <div class="p-type">1-Click Direct Application</div>
+          </div>
+          <div class="portal-badge-card">
+            <div class="p-icon" style="background: #ff4742;">RO</div>
+            <div class="p-name">RemoteOK</div>
+            <div class="p-type">Real-Time Global Feeds</div>
+          </div>
+          <div class="portal-badge-card">
+            <div class="p-icon" style="background: #2563eb;">AN</div>
+            <div class="p-name">Arbeitnow</div>
+            <div class="p-type">Tech &amp; Engineering Feeds</div>
+          </div>
+        </div>
+
+        <div class="portal-callout-box">
+          <div class="callout-icon">💡</div>
+          <div>
+            <strong style="color: #1e3a8a;">How TalentPulse Interacts With External Job Boards:</strong>
+            <p style="margin: 4px 0 0; color: #334155; font-size: 13.5px; line-height: 1.6;">
+              External job portals like LinkedIn, Naukri, and Indeed mandate end-user browser sessions and CAPTCHA verifications. TalentPulse solves this with <strong>Internal Audit Application Receipts</strong> and our <strong>Zero-Typing Clipboard Auto-Fill Assistant</strong>: when navigating to an external board, your full profile, candidate packet, and tailored pitch note are instantly loaded to your clipboard, allowing 1-second pasting into any external application form.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Commercial / B2B Section & CTA Footer -->
+    <div class="landing-section" id="pricingEnterprise">
+      <div class="section-container">
+        <div class="enterprise-banner">
+          <div class="enterprise-content">
+            <div class="section-tag" style="color: #93c5fd;">ENTERPRISE &amp; INDIVIDUAL ACCELERATION</div>
+            <h2 style="font-size: 26px; font-weight: 800; color: #ffffff; margin: 10px 0 12px;">
+              Ready to Accelerate Your Career Pipeline?
+            </h2>
+            <p style="color: #e0e7ff; font-size: 14.5px; max-width: 600px; line-height: 1.6;">
+              Sign up today, drop your resume, and let autonomous AI match and log your applications across top tech opportunities.
+            </p>
+            <div style="margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap;">
+              <button class="btn-landing-primary btn-large" style="background:#ffffff; color:#1e40af; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" onclick="handleLaunchPortalClick()">
+                Launch TalentPulse Dashboard Now 🚀
+              </button>
+              <button class="btn-landing-secondary btn-large" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.4); color: #ffffff;" onclick="openAuthModal('register')">
+                Create Free Candidate Account
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Landing Footer -->
+    <footer class="landing-footer">
+      <div class="landing-nav-container" style="justify-content: space-between; font-size: 13px; color: #64748b;">
+        <div>© 2026 TalentPulse AI Inc. Commercial Agentic Career Platform. All rights reserved.</div>
+        <div style="display: flex; gap: 20px;">
+          <a onclick="handleLaunchPortalClick()" style="cursor:pointer; color:#2557a7; font-weight:600;">Launch App</a>
+          <a onclick="openAuthModal('login')" style="cursor:pointer; color:#64748b;">Sign In</a>
+          <a onclick="openAuthModal('register')" style="cursor:pointer; color:#64748b;">Register</a>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+
+  <!-- ==================== MAIN APPLICATION CONTAINER ==================== -->
+  <div id="appContainer">
+  <!-- Top Clean Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="nav-left">
+        <a class="logo-wrap" onclick="switchNavTab('find-jobs')" title="TalentPulse Home">
+          <div class="logo-icon">TP</div>
+          <span class="logo-text">TalentPulse</span>
+        </a>
+
+        <nav class="nav-tabs">
+          <button class="nav-tab-btn active" id="tabFindJobs" onclick="switchNavTab('find-jobs')">
+            Find Jobs
+          </button>
+          <button class="nav-tab-btn" id="tabRecommended" onclick="switchNavTab('recommended')">
+            Recommended <span class="badge-rec">CV Matched</span>
+          </button>
+          <button class="nav-tab-btn" id="tabApplied" onclick="switchNavTab('applied')">
+            Applied Jobs <span class="tab-pill" id="appliedCountHeader">0</span>
+          </button>
+          <button class="nav-tab-btn" id="tabSaved" onclick="switchNavTab('saved')">
+            Saved Jobs <span class="tab-pill" id="savedCountHeader">0</span>
+          </button>
+        </nav>
+      </div>
+
+      <div class="nav-right">
+        <!-- Notification Bell Icon -->
+        <div class="nav-popover-wrap">
+          <button class="nav-icon-btn" id="btnNotifications" onclick="toggleNotificationsMenu(event)" title="Notifications">
+            <span class="bell-icon">🔔</span>
+            <span class="notif-badge" id="notifBadge">3</span>
+          </button>
+
+          <!-- Notifications Dropdown Menu -->
+          <div class="dropdown-popover" id="notificationsDropdown">
+            <div class="dropdown-header-row">
+              <span style="font-weight: 700; font-size: 14px; color: #0f172a;">Notifications</span>
+              <button class="dropdown-link-btn" onclick="clearNotifications()">Clear all</button>
+            </div>
+            <div class="notif-items-list" id="notifList">
+              <div class="notif-item unread">
+                <div class="notif-icon">🎯</div>
+                <div class="notif-text">
+                  <div class="notif-title">3 New Jobs Matched Your CV</div>
+                  <div class="notif-time">Just now • Canonical &amp; HackerRank</div>
+                </div>
+              </div>
+              <div class="notif-item unread">
+                <div class="notif-icon">✅</div>
+                <div class="notif-text">
+                  <div class="notif-title">Application Acknowledged</div>
+                  <div class="notif-time">Today • Machine Learning Engineer at Canonical</div>
+                </div>
+              </div>
+              <div class="notif-item">
+                <div class="notif-icon">📄</div>
+                <div class="notif-text">
+                  <div class="notif-title">Profile CV Sync Active</div>
+                  <div class="notif-time">Yesterday • Alex Thomas Resume verified</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Minimal Profile Account Dropdown Trigger -->
+        <div class="nav-popover-wrap">
+          <button class="profile-nav-btn" onclick="toggleProfileMenu(event)" title="Account &amp; Settings">
+            <div class="avatar-dot" id="navAvatar">SM</div>
+            <span class="profile-nav-name" id="navCandidateName">Alex Thomas</span>
+            <span class="dropdown-chevron">▾</span>
+          </button>
+
+          <!-- Profile Dropdown Menu -->
+          <div class="dropdown-popover profile-dropdown" id="profileDropdown">
+            <div class="dropdown-profile-header">
+              <div class="avatar-dot-large" id="ddAvatar">SM</div>
+              <div style="overflow:hidden;">
+                <div class="dd-name" id="ddUserName">Alex Thomas</div>
+                <div class="dd-email" id="ddUserEmail">alex@gmail.com</div>
+              </div>
+            </div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" onclick="openProfileEditModal(); closeDropdowns();">
+              <span class="dd-item-icon">
+                <svg class="dd-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </span>
+              <span>My Profile &amp; Resume</span>
+            </a>
+            <a class="dropdown-item" onclick="openSettingsModal(); closeDropdowns();">
+              <span class="dd-item-icon">
+                <svg class="dd-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="3"></circle>
+                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                </svg>
+              </span>
+              <span>Settings &amp; Preferences</span>
+            </a>
+            <a class="dropdown-item" onclick="openAuthModal('login'); closeDropdowns();">
+              <span class="dd-item-icon">
+                <svg class="dd-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 3 21 3 21 8"></polyline>
+                  <line x1="4" y1="20" x2="21" y2="3"></line>
+                  <polyline points="21 16 21 21 16 21"></polyline>
+                  <line x1="15" y1="15" x2="21" y2="21"></line>
+                  <line x1="4" y1="4" x2="9" y2="9"></line>
+                </svg>
+              </span>
+              <span>Switch Account / Sign Up</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item text-danger" onclick="handleLogout(); closeDropdowns();">
+              <span class="dd-item-icon">
+                <svg class="dd-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="stroke: #dc2626;">
+                  <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                  <polyline points="16 17 21 12 16 7"></polyline>
+                  <line x1="21" y1="12" x2="9" y2="12"></line>
+                </svg>
+              </span>
+              <span>Log Out</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Clean, Minimal, Centered Search Hero -->
+  <section class="search-hero" id="searchHeroSection">
+    <div class="search-container">
+      
+      <!-- Compact Centered Search Bar -->
+      <div class="search-box-wrap">
+        <div class="search-field">
+          <span class="field-icon">🔍</span>
+          <input 
+            type="text" 
+            class="search-input" 
+            id="searchInputWhat" 
+            placeholder="Search by job title, skills, or company" 
+            value="Machine Learning Engineer"
+          >
+        </div>
+
+        <div class="search-divider"></div>
+
+        <div class="search-field search-field-loc">
+          <span class="field-icon">📍</span>
+          <input 
+            type="text" 
+            class="search-input" 
+            id="searchInputWhere" 
+            placeholder="City, state, or Remote" 
+            value="Hyderabad, Telangana"
+          >
+        </div>
+
+        <button class="btn-clear-search" id="btnClearSearch" onclick="clearSearchAndReset()" title="Clear search">
+          ✕
+        </button>
+
+        <button class="btn-search" onclick="executeSearch()">
+          Find Jobs
+        </button>
+      </div>
+
+      <!-- Minimal Filter Row with Shuffle & Dropdown Filters -->
+      <div class="filter-bar">
+        <button class="filter-dropdown-btn filter-shuffle-btn" id="btnFilterShuffle" onclick="shuffleJobsOrder()" title="Shuffle job recommendations">
+          <span class="shuffle-icon">🔀</span> All Filters
+        </button>
+
+        <!-- Experience Filter Dropdown -->
+        <div class="dropdown-select-wrap">
+          <button class="filter-dropdown-btn" id="btnExpFilter" onclick="toggleFilterMenu('expDropdown', event)">
+            <span id="labelExpFilter">Experience</span> <span class="dropdown-chevron">▾</span>
+          </button>
+          <div class="filter-menu" id="expDropdown">
+            <div class="filter-menu-item active" onclick="setExperienceFilter('all', 'Experience')">Any Experience</div>
+            <div class="filter-menu-item" onclick="setExperienceFilter('fresher', '0 - 2 Yrs')">Entry / 0–2 Years</div>
+            <div class="filter-menu-item" onclick="setExperienceFilter('mid', '3 - 5 Yrs')">Mid / 3–5 Years</div>
+            <div class="filter-menu-item" onclick="setExperienceFilter('senior', '5+ Yrs')">Senior / 5+ Years</div>
+          </div>
+        </div>
+
+        <!-- Location Filter Dropdown -->
+        <div class="dropdown-select-wrap">
+          <button class="filter-dropdown-btn" id="btnLocFilter" onclick="toggleFilterMenu('locDropdown', event)">
+            <span id="labelLocFilter">Location</span> <span class="dropdown-chevron">▾</span>
+          </button>
+          <div class="filter-menu" id="locDropdown">
+            <div class="filter-menu-item active" onclick="setLocationFilter('all', 'Location')">All Locations</div>
+            <div class="filter-menu-item" onclick="setLocationFilter('Hyderabad', 'Hyderabad')">Hyderabad</div>
+            <div class="filter-menu-item" onclick="setLocationFilter('Bengaluru', 'Bengaluru')">Bengaluru</div>
+            <div class="filter-menu-item" onclick="setLocationFilter('Remote', 'Remote')">Remote</div>
+          </div>
+        </div>
+
+        <!-- Work Mode Filter Dropdown (Remote, Hybrid, On-site) -->
+        <div class="dropdown-select-wrap">
+          <button class="filter-dropdown-btn" id="btnWorkModeFilter" onclick="toggleFilterMenu('workModeDropdown', event)">
+            <span id="labelWorkModeFilter">Work Mode</span> <span class="dropdown-chevron">▾</span>
+          </button>
+          <div class="filter-menu" id="workModeDropdown">
+            <div class="filter-menu-item active" onclick="setWorkModeFilter('all', 'Work Mode')">All Modes</div>
+            <div class="filter-menu-item" onclick="setWorkModeFilter('remote', 'Remote')">Remote</div>
+            <div class="filter-menu-item" onclick="setWorkModeFilter('hybrid', 'Hybrid')">Hybrid</div>
+            <div class="filter-menu-item" onclick="setWorkModeFilter('onsite', 'On-site')">On-site</div>
+          </div>
+        </div>
+
+        <button class="filter-reset-link" id="btnResetFilters" onclick="clearAllFilters()" style="display:none;">
+          ↺ Reset Filters
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Master-Detail 2-Column Main Layout -->
+  <main class="content-layout">
+
+    <!-- Left Column: Job Cards List -->
+    <section class="jobs-list-panel">
+      <div class="list-header-row">
+        <div>
+          <div class="results-count" id="resultsCountLabel">Job Openings</div>
+          <div style="font-size: 12px; color: var(--text-muted);" id="searchMetaLabel">Matching your profile preferences</div>
+        </div>
+        <button class="btn-auto-apply" id="btnAutoApplyAll" onclick="autoApplyAllQualified()">
+          <span>⚡ Auto-Apply All</span>
+        </button>
+      </div>
+
+      <!-- Job Cards Container -->
+      <div id="jobCardsContainer" style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="background:#ffffff; border:1px solid #e5e7eb; border-radius:8px; padding:32px; text-align:center; color:#64748b;">
+          Loading relevant jobs based on your profile...
+        </div>
+      </div>
+    </section>
+
+    <!-- Right Column: Sticky Job Detail View -->
+    <aside class="job-detail-panel" id="jobDetailContainer">
+      <div style="text-align: center; padding: 60px 20px; color: #64748b;">
+        <div style="font-size: 32px; margin-bottom: 12px;">📋</div>
+        <div style="font-size: 16px; font-weight: 700; color: #1e293b;">Select a job to view details</div>
+        <div style="font-size: 13px; margin-top: 6px;">Browse the listings on the left to inspect requirements and CV alignment.</div>
+      </div>
+    </aside>
+
+  </main>
+  </div> <!-- /#appContainer -->
+
+  <!-- ==================== 1. Profile & Settings Modal with Toggles ==================== -->
+  <div class="modal-overlay" id="settingsModalOverlay">
+    <div class="modal-content" style="max-width: 600px;">
+      <div class="modal-head">
+        <div class="modal-title">Settings &amp; Automation Preferences</div>
+        <button class="modal-close" onclick="closeSettingsModal()">&times;</button>
+      </div>
+
+      <!-- Settings Toggles Section (Requested by User) -->
+      <div style="margin-bottom: 18px;">
+        <!-- Toggle 1: Auto-applying -->
+        <div class="setting-item-row">
+          <div class="setting-info">
+            <div class="setting-title">
+              <span>⚡</span> Auto-Applying Mode
+            </div>
+            <div class="setting-desc">
+              Automatically submit 1-click applications when job matches your CV qualification criteria.
+            </div>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="toggleAutoApply" onchange="handleSettingToggle('auto_apply_enabled', this.checked)">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+
+        <!-- Toggle 2: Attach Cover Letter while sending -->
+        <div class="setting-item-row">
+          <div class="setting-info">
+            <div class="setting-title">
+              <span>📄</span> Attach Cover Letter While Sending
+            </div>
+            <div class="setting-desc">
+              Have AI dynamically craft and attach a tailored 3-paragraph cover letter highlighting your skills for each job.
+            </div>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="toggleAttachCoverLetter" onchange="handleSettingToggle('attach_cover_letter', this.checked)">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+
+        <!-- Toggle 3: Share Your Resume Option -->
+        <div class="setting-item-row">
+          <div class="setting-info">
+            <div class="setting-title">
+              <span>📤</span> Share Your Resume Option
+            </div>
+            <div class="setting-desc">
+              Attach and share your verified CV/resume document with hiring teams and ATS boards.
+            </div>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="toggleShareResume" onchange="handleSettingToggle('share_resume', this.checked)">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--border-color);">
+        <button class="btn-search" style="padding: 8px 22px; border-radius: 6px;" onclick="closeSettingsModal()">
+          Done
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 2. Edit Profile Modal ==================== -->
+  <div class="modal-overlay" id="editProfileModal">
+    <div class="modal-content" style="max-width: 580px;">
+      <div class="modal-head">
+        <div class="modal-title">Candidate Profile &amp; CV</div>
+        <button class="modal-close" onclick="closeProfileEditModal()">&times;</button>
+      </div>
+
+      <!-- Active Resume Card -->
+      <div class="active-cv-card" id="activeCvCard">
+        <div class="cv-card-left">
+          <div class="cv-icon-badge">📄 PDF</div>
+          <div class="cv-info">
+            <div class="cv-filename" id="modalCvFilename">Alex_Thomas_Resume.pdf</div>
+            <div class="cv-meta" id="modalCvMeta">12 Skills Extracted • 3 Yrs Experience • Ready for 1-Click Apply</div>
+          </div>
+        </div>
+        <div class="cv-card-right">
+          <span class="cv-status-pill">● Active &amp; Synced</span>
+          <button type="button" class="btn-replace-cv" onclick="document.getElementById('modalFileInput').click()">
+            🔄 Replace CV
+          </button>
+        </div>
+      </div>
+
+      <!-- CV Dropzone for replacement or new drop -->
+      <div class="cv-upload-dropzone" id="cvDropzone" onclick="document.getElementById('modalFileInput').click()">
+        <div style="font-size: 20px; margin-bottom: 4px;">📤</div>
+        <div style="font-size: 13.5px; font-weight: 700; color: #0f172a;">Drag &amp; Drop New CV to Replace or Update</div>
+        <div style="font-size: 12px; color: #64748b; margin-top: 2px;">Supports PDF or TXT • Instant re-parsing of skills &amp; career domain</div>
+        <input type="file" id="modalFileInput" accept=".pdf,.txt" style="display:none;" onchange="handleModalCvUpload(event)">
+      </div>
+
+
+      <form id="editProfileForm" onsubmit="event.preventDefault(); saveProfileEdits();">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-input" id="editName" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Professional Headline</label>
+            <input type="text" class="form-input" id="editHeadline" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" class="form-input" id="editEmail" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number</label>
+            <input type="text" class="form-input" id="editPhone" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Location</label>
+            <input type="text" class="form-input" id="editLocation" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Years Experience</label>
+            <input type="number" class="form-input" id="editExp" min="0" max="35">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">LinkedIn URL</label>
+          <input type="url" class="form-input" id="editLinkedin">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Skills (comma-separated)</label>
+          <input type="text" class="form-input" id="editSkills">
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 18px;">
+          <button type="button" class="btn-save-job" onclick="closeProfileEditModal()">Cancel</button>
+          <button type="submit" class="btn-search" style="padding: 10px 20px; border-radius: 6px;">
+            Save Profile
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== 3. User Registration & Sign Up / Login Modal ==================== -->
+  <div class="modal-overlay" id="authModalOverlay">
+    <div class="modal-content" style="max-width: 540px;">
+      <div class="modal-head">
+        <div>
+          <div class="modal-title" id="authModalTitle">Candidate Account</div>
+          <div style="font-size: 12px; color: #64748b; margin-top: 2px;" id="authModalSubtitle">Sign in or register your candidate profile to access job discovery &amp; automation</div>
+        </div>
+        <button class="modal-close" onclick="closeAuthModal()">&times;</button>
+      </div>
+
+      <div style="display: flex; gap: 8px; margin-bottom: 18px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;">
+        <button class="nav-tab-btn active" id="tabLoginMode" onclick="switchAuthTab('login')">
+          Sign In
+        </button>
+        <button class="nav-tab-btn" id="tabRegisterMode" onclick="switchAuthTab('register')">
+          Create Profile
+        </button>
+      </div>
+
+      <!-- Simple Login Form (Default) -->
+      <form id="loginForm" onsubmit="event.preventDefault(); handleUserLogin();">
+        <div class="form-group">
+          <label class="form-label">Registered Email Address</label>
+          <input type="email" class="form-input" id="loginEmail" placeholder="candidate@example.com" value="alex@gmail.com" required>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 18px;">
+          <button type="button" class="btn-save-job" style="font-size: 12px;" onclick="bypassAsGuest()">
+            Continue as Guest Demo →
+          </button>
+          <div style="display: flex; gap: 10px;">
+            <button type="button" class="btn-save-job" onclick="closeAuthModal()">Cancel</button>
+            <button type="submit" class="btn-search" style="padding: 10px 22px; border-radius: 6px;">
+              Sign In &amp; Enter
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <!-- Registration Form -->
+      <form id="registerForm" style="display: none;" onsubmit="event.preventDefault(); handleUserRegister();">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Full Name *</label>
+            <input type="text" class="form-input" id="regName" placeholder="e.g. Alex Thomas" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address *</label>
+            <input type="email" class="form-input" id="regEmail" placeholder="candidate@example.com" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Phone Number *</label>
+            <input type="text" class="form-input" id="regPhone" placeholder="+91 9876543210" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Location *</label>
+            <input type="text" class="form-input" id="regLocation" placeholder="Hyderabad, Telangana" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Target Roles *</label>
+          <input type="text" class="form-input" id="regTargetRoles" placeholder="AI Engineer, Machine Learning Engineer" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Core Skills *</label>
+          <input type="text" class="form-input" id="regSkills" placeholder="Python, Machine Learning, PyTorch, FastAPI" required>
+        </div>
+
+        <div style="margin-top: 16px; display: flex; justify-content: flex-end; gap: 10px;">
+          <button type="button" class="btn-save-job" onclick="closeAuthModal()">Cancel</button>
+          <button type="submit" class="btn-search" style="padding: 10px 22px; border-radius: 6px;">
+            Save &amp; Continue
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== 4. Tailored Cover Letter Modal ==================== -->
+  <div class="modal-overlay" id="coverLetterModal">
+    <div class="modal-content" style="max-width: 640px;">
+      <div class="modal-head">
+        <div class="modal-title" id="coverModalTitle">Tailored Cover Letter</div>
+        <button class="modal-close" onclick="closeCoverModal()">&times;</button>
+      </div>
+      <div id="coverModalBody" style="font-size: 13.5px; line-height: 1.7; color: #334155; white-space: pre-wrap; margin-bottom: 20px;">
+        Drafting personalized cover letter with AI...
+      </div>
+      <div style="display: flex; justify-content: flex-end; gap: 10px;">
+        <button class="btn-save-job" onclick="copyCoverLetter()">📋 Copy</button>
+        <button class="btn-search" style="border-radius: 6px; padding: 8px 18px;" onclick="closeCoverModal()">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 5. Application Submission Receipt Modal ==================== -->
+  <div class="modal-overlay" id="autoApplyModal">
+    <div class="modal-content" style="max-width: 580px;">
+      <div class="modal-head">
+        <div class="modal-title" style="color: #15803d; display: flex; align-items: center; gap: 8px;">
+          <span>🎉</span> Application Submitted Successfully!
+        </div>
+        <button class="modal-close" onclick="closeApplyModal()">&times;</button>
+      </div>
+      <div id="applyModalContent" style="font-size: 13.5px; line-height: 1.6; color: #334155;">
+        <!-- Injected via JavaScript -->
+      </div>
+      <div style="margin-top: 20px; display: flex; justify-content: flex-end;">
+        <button class="btn-search" style="border-radius: 6px; padding: 9px 22px;" onclick="closeApplyModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notifications Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

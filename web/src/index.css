@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --brand-primary: #4F46E5;
+    --brand-hover: #4338CA;
+    --surface-bg: #F8FAFC;
+    --surface-card: #FFFFFF;
+    --surface-border: #E2E8F0;
+    --text-primary: #0F172A;
+    --text-secondary: #64748B;
+    --match-high: #10B981;
+    --match-medium: #F59E0B;
+    --match-low: #EF4444;
+  }
+
+  .dark {
+    --brand-primary: #8B86FF;
+    --brand-hover: #A5B4FC;
+    --surface-bg: #0F172A;
+    --surface-card: #1E293B;
+    --surface-border: #334155;
+    --text-primary: #F8FAFC;
+    --text-secondary: #94A3B8;
+    --match-high: #34D399;
+    --match-medium: #FBBF24;
+    --match-low: #F87171;
+  }
+
+  body {
+    background-color: var(--surface-bg);
+    color: var(--text-primary);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+}
+
+/* Custom utility classes */
+.card-border {
+  border: 1px solid var(--surface-border);
+}
+
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-brand-500/40 focus:border-brand-500 transition-all;
+}
+
+/* Smooth transitions */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+

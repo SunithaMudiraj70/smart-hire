@@ -1,0 +1,48 @@
+{
+  "profile": {
+    "candidate_id": "CAN-69036",
+    "name": "Alex Thomas",
+    "email": "alex@gmail.com",
+    "phone": "+91 98765 43210",
+    "linkedin": "https://linkedin.com/in/alexthomas",
+    "location": "Bengaluru, Karnataka, India",
+    "years_experience": 2,
+    "education": [
+      "Bachelor of Technology in Computer Science"
+    ],
+    "skills": [
+      "Python",
+      "FastAPI",
+      "React",
+      "TypeScript",
+      "SQL",
+      "PostgreSQL",
+      "Docker",
+      "Git",
+      "REST API",
+      "Machine Learning",
+      "AWS"
+    ],
+    "target_roles": [
+      "Software Engineer",
+      "Backend Developer",
+      "Full Stack Engineer"
+    ],
+    "raw_text_length": 3400,
+    "summary": [
+      "Bengaluru, Karnataka | +91 98765 43210 | alex@gmail.com | linkedin.com/in/alexthomas",
+      "PROFESSIONAL SUMMARY",
+      "Results-driven Software Engineer with hands-on experience architecting and deploying scalable web services.",
+      "Proficient in Python, modern web frameworks, and cloud-native architectures."
+    ],
+    "filename": "Alex_Thomas_Resume.pdf",
+    "headline": "Software Engineer & Backend Developer"
+  },
+  "settings": {
+    "auto_apply_enabled": false,
+    "attach_cover_letter": true,
+    "min_match_score": 70,
+    "daily_digest_email": true,
+    "immediate_alerts": true
+  }
+}

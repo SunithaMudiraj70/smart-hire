@@ -1,0 +1,44 @@
+# ========================================================
+# smart-hire - Production Dependencies for Render / Docker
+# ========================================================
+
+# Core Web Framework & ASGI Server
+fastapi>=0.110.0
+uvicorn[standard]>=0.28.0
+starlette>=0.36.0
+python-multipart>=0.0.9
+
+# Validation & Data Schemas
+pydantic>=2.6.0
+pydantic-core>=2.16.0
+email-validator>=2.1.0
+
+# Database & ORM
+sqlalchemy>=2.0.0
+psycopg2-binary>=2.9.9
+
+# Authentication & Password Hashing
+pyjwt>=2.8.0
+passlib[bcrypt]>=1.7.4
+bcrypt>=4.0.0
+cryptography>=42.0.0
+
+# Network, HTTP Clients & Web Scraping/Ingestion
+requests>=2.31.0
+httpx>=0.27.0
+duckduckgo-search>=5.0.0
+dnspython>=2.6.0
+
+# Ingestion Scheduling & Background Jobs
+apscheduler>=3.10.4
+
+# ML, Skills Extraction & Vector Matching
+scikit-learn>=1.4.0
+numpy>=1.26.0
+
+# Distributed Caching & Rate Limiting
+redis>=5.0.0
+
+# Environment & Console Utilities
+python-dotenv>=1.0.1
+rich>=13.7.0

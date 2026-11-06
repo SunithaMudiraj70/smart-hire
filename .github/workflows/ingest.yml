@@ -1,0 +1,16 @@
+name: Hourly Ingestion & Health Audit
+
+on:
+  schedule:
+    - cron: "0 * * * *"
+  workflow_dispatch:
+
+jobs:
+  trigger-ingest:
+    name: Trigger Ingestion Cycle
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger smart-hire ingestion and link health audit
+        run: |
+          curl -fsS --retry 3 --retry-delay 30 -m 120 -X POST -H "X-Admin-Token: ${{ secrets.ADMIN_TOKEN }}" https://smart-hire-api.onrender.com/api/admin/ingest
+

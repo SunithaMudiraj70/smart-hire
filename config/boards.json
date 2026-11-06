@@ -1,0 +1,24 @@
+{
+  "greenhouse": [
+    "canonical",
+    "cloudflare",
+    "figma",
+    "gitlab",
+    "stripe",
+    "discord",
+    "airbnb"
+  ],
+  "lever": [
+    "palantir",
+    "spotify"
+  ],
+  "ashby": [
+    "sentry",
+    "linear",
+    "replit",
+    "notion",
+    "perplexity",
+    "ramp"
+  ]
+}
+
