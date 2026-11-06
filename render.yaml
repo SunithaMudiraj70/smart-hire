@@ -74,7 +74,7 @@ services:
 
       # Explicit origins (never '*' when credentials/cookies are used)
       - key: CORS_ORIGINS
-        value: "https://smart-hire-web.onrender.com,http://localhost:3000,http://127.0.0.1:3000"
+        value: "https://smart-hire-web-5eax.onrender.com,https://smart-hire-web.onrender.com,http://localhost:3000,http://127.0.0.1:3000"
 
       # Resend HTTP API for daily email digests (zero SMTP dependencies)
       - key: RESEND_API_KEY
@@ -112,4 +112,4 @@ services:
     envVars:
       # Points the client-side API requests to the deployed backend Web Service
       - key: VITE_API_URL
-        value: https://smart-hire-api.onrender.com
+        sync: false
