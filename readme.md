@@ -1,7 +1,9 @@
 # ⚡ smart-hire — Job Search Intelligence
+"https://smart-hire-web-5eax.onrender.com/"
 
 > **Find the right job without scrolling every portal.**
 > Real-time job search intelligence web application for freshers, early-career and working professionals across India.
+> explore now!
 
 ---
 
@@ -35,15 +37,7 @@ Copy the template environment file:
 ```powershell
 Copy-Item .env.example .env
 ```
-Ensure your `.env` contains:
-```env
-DATABASE_URL=sqlite:///./smart_hire.db
-JWT_SECRET_KEY=smart_hire_super_secret_jwt_key_2026_dev_env_x99
-JWT_ACCESS_EXPIRE_MINUTES=15
-JWT_REFRESH_EXPIRE_DAYS=7
-RAPID_API_KEY=765c41d967msh7e25ccc8dea6ab1p19daf1jsn32c47dc2018c
-CORS_ORIGINS=http://localhost:3000,http://127.0.0.1:3000
-```
+
 
 ---
 
@@ -69,27 +63,7 @@ Open **[http://localhost:3000](http://localhost:3000)** in your browser.
 
 ---
 
-## 🧪 Running Automated Tests
 
-Run backend unit tests covering JWT token generation, password validation (min 8 chars), duplicate email checks, token refresh, and user-scoped data access:
-```powershell
-.\env\Scripts\python -m pytest tests/test_auth.py -v
-```
-
----
-
-## ☁️ Deployment on Render
-
-Deploy **smart-hire** with 1-click on Render using the included Infrastructure-as-Code Blueprint (`render.yaml`):
-
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy)
-
-1. Connect your repository in [Render Dashboard](https://dashboard.render.com).
-2. Render automatically sets up:
-   - **PostgreSQL Database** (`smart-hire-postgres`)
-   - **FastAPI Backend** (`smart-hire-api`)
-   - **React Static Frontend** (`smart-hire-web`)
-3. See [docs/RENDER_DEPLOYMENT.md](file:///c:/Users/SUNITHA/Downloads/chatgptversiondemo1/docs/RENDER_DEPLOYMENT.md) for complete instructions.
 
 ---
 
