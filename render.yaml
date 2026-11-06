@@ -93,11 +93,6 @@ services:
       - key: RAPIDAPI_HOST
         value: jsearch.p.rapidapi.com
 
-      - key: ADZUNA_APP_ID
-        sync: false
-
-      - key: ADZUNA_APP_KEY
-        sync: false
 
       - key: FEATURE_B2B_RECRUITER
         value: "true"
@@ -112,7 +107,7 @@ services:
     plan: free
     branch: main
     buildCommand: npm --prefix web install && npm --prefix web run build
-    publishPath: web/dist
+    staticPublishPath: web/dist
     autoDeploy: true
     routes:
       # React Router Single Page Application fallback rule
