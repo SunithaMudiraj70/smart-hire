@@ -2,7 +2,6 @@ import json
 import os
 import time
 import datetime
-import ollama
 from typing import Dict, List, Any
 
 APPLICATIONS_LOG_FILE = "applications_log.json"
@@ -54,6 +53,7 @@ def generate_tailored_cover_letter(candidate: Dict[str, Any], job: Dict[str, Any
     # Try Ollama only if explicitly enabled or locally accessible with fast timeout
     if os.environ.get("ENABLE_OLLAMA", "").lower() in ("true", "1"):
         try:
+            import ollama
             client = ollama.Client(timeout=2.0)
             prompt = f"""
             Write a concise, high-impact 3-paragraph cover letter for:

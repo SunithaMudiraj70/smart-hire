@@ -1,5 +1,4 @@
 import re
-import ollama
 from typing import Dict, List, Any
 
 def calculate_rule_based_match(candidate: Dict[str, Any], job: Dict[str, Any]) -> Dict[str, Any]:
@@ -61,6 +60,7 @@ def analyze_match_with_ollama(candidate: Dict[str, Any], job: Dict[str, Any]) ->
     """Optional deep LLM analysis using local Ollama llama3."""
     base = calculate_rule_based_match(candidate, job)
     try:
+        import ollama
         prompt = f"""
         Analyze candidate fit for the following job:
         Candidate: {candidate.get('name')}, Skills: {', '.join(candidate.get('skills', []))}, Experience: {candidate.get('years_experience')} years
