@@ -93,18 +93,22 @@ services:
       - key: RAPIDAPI_HOST
         value: jsearch.p.rapidapi.com
 
+      - key: ADZUNA_APP_ID
+        sync: false
+
+      - key: ADZUNA_APP_KEY
+        sync: false
 
       - key: FEATURE_B2B_RECRUITER
         value: "true"
 
   # ----------------------------------------------------------------------------
-  # 2. smart-hire Frontend Static Site
+  # 2. smart-hire Frontend Static Site (Served via Render Global CDN)
+  # Note: Static sites are globally distributed (no region) and free (no plan).
   # ----------------------------------------------------------------------------
   - type: web
     name: smart-hire-web
     runtime: static
-    region: oregon
-    plan: free
     branch: main
     buildCommand: npm --prefix web install && npm --prefix web run build
     staticPublishPath: web/dist
@@ -115,46 +119,6 @@ services:
         source: /*
         destination: /index.html
     envVars:
-      # Injects the live public URL of smart-hire-api into Vite build
+      # Points the client-side API requests to the deployed backend Web Service
       - key: VITE_API_URL
-        fromService:
-          type: web
-          name: smart-hire-api
-          property: url
-
-  # ----------------------------------------------------------------------------
-  # 3. Dedicated Background Ingestion Worker (Optional - Starter Plan / Paid)
-  # Uncomment below if you upgrade Render plan and set RUN_SCHEDULER_IN_API: "false"
-  # ----------------------------------------------------------------------------
-  # - type: worker
-  #   name: smart-hire-worker
-  #   runtime: python
-  #   region: oregon
-  #   plan: starter
-  #   branch: main
-  #   buildCommand: pip install --upgrade pip && pip install -r requirements.txt
-  #   startCommand: python -m backend.worker
-  #   autoDeploy: true
-  #   envVars:
-  #     - key: PYTHON_VERSION
-  #       value: 3.11.9
-  #     - key: DATABASE_URL
-  #       fromDatabase:
-  #         name: smart-hire-postgres
-  #         property: connectionString
-  #     - key: JWT_SECRET_KEY
-  #       fromService:
-  #         type: web
-  #         name: smart-hire-api
-  #         envVarKey: JWT_SECRET_KEY
-  #     - key: LOG_LEVEL
-  #       value: INFO
-  #     - key: VECTOR_BACKEND
-  #       value: local
-  #     - key: RAPID_API_KEY
-  #       sync: false
-  #     - key: ADZUNA_APP_ID
-  #       sync: false
-  #     - key: ADZUNA_APP_KEY
-  #       sync: false
-
+        value: https://smart-hire-api.onrender.com
