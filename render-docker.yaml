@@ -52,10 +52,6 @@ services:
         value: "*"
       - key: RAPID_API_KEY
         sync: false
-      - key: ADZUNA_APP_ID
-        sync: false
-      - key: ADZUNA_APP_KEY
-        sync: false
 
   # 2. Containerized Frontend Web Service (Nginx)
   - type: web

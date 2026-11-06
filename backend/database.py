@@ -17,7 +17,8 @@ def normalize_database_url(url: str | None) -> str:
         return clean_url.replace("postgres://", "postgresql://", 1)
     return clean_url
 
-DATABASE_URL = normalize_database_url(os.environ.get("DATABASE_URL", "sqlite:///./smart_hire.db"))
+raw_db_url = os.environ.get("DATABASE_URL") or os.environ.get("SUPABASE_DATABASE_URL") or "sqlite:///./smart_hire.db"
+DATABASE_URL = normalize_database_url(raw_db_url)
 
 engine_kwargs = {}
 if DATABASE_URL.startswith("sqlite"):
