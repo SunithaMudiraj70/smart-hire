@@ -43,10 +43,26 @@ def run_admin_ingest_cycle(run_id: str):
     except Exception as e:
         logger.error(f"[ADMIN INGEST {run_id}] Error in background ingestion cycle: {e}", exc_info=True)
 
+@router.get("/ingest")
+def get_admin_ingest_info():
+    """Information endpoint explaining how to trigger the ingestion pipeline."""
+    return {
+        "status": "ready",
+        "description": "Trigger background job ingestion and link health verification via POST with X-Admin-Token header.",
+        "method": "POST",
+        "endpoint": "/api/admin/ingest"
+    }
+
+@router.get("/health")
+def admin_health():
+    """Admin service health check."""
+    return {"status": "ok", "service": "admin"}
+
 @router.post("/ingest", status_code=status.HTTP_202_ACCEPTED)
 def trigger_admin_ingest(
     background_tasks: BackgroundTasks,
-    x_admin_token: Optional[str] = Header(None, alias="X-Admin-Token")
+    x_admin_token: Optional[str] = Header(None, alias="X-Admin-Token"),
+    authorization: Optional[str] = Header(None, alias="Authorization"),
 ):
     """
     Triggers one complete ingestion pipeline cycle plus link health verification.
@@ -56,8 +72,12 @@ def trigger_admin_ingest(
     """
     global _last_ingestion_timestamp
 
+    token = x_admin_token
+    if not token and authorization and authorization.lower().startswith("bearer "):
+        token = authorization[7:].strip()
+
     expected_token = os.environ.get("ADMIN_TOKEN", "smart-hire-admin-token")
-    if not x_admin_token or not secrets.compare_digest(x_admin_token.strip(), expected_token.strip()):
+    if not token or not secrets.compare_digest(token.strip(), expected_token.strip()):
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Invalid or missing X-Admin-Token header"
